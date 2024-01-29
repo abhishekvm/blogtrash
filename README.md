@@ -1,56 +1,49 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Problem Statement
+
+Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** as ORM. The app should provide ability to restore deleted blogs if user restores it within `2 minutes` from the time it is deleted. After 2 minutes deleted blog is permanently deleted from database  
+## Lessons Learnt
+
+1. Getting familiar with NextJS API Routes
+1. Basics of Prisma ORM (migrations, transactions)
+1. Caveats
+   1. Restored blogs from trash gets new `id`.
+      1. The deleted blogs are maintained in the separate table `blogtrash`. While restoring blog gets new `id` as `id` is autoincrement key and Prisma adds a check to avoid overriding autoincrement behaviour
+      1. This problem may not arise if `id` field is not autoincrement or we chose to bypass Prisma and write raw sql.
+   2. Permanent deletion may not work if the NextJS Server is stopped or restarted within `2 minutes` from the blog is deleted.
+      1. The permanent deletion is scheduled using `setTimeout` with acts a in-memory cron job
+
 ## Getting Started
 
-First, run the development server:
+1. Spin up MySQL Docker container
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   docker-compose up -d
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Create `.env` file with database connection string
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   DATABASE_URL="mysql://root:rootpass@localhost:3306/playground"
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Run database migration
+   ```bash
+   npm run prisma:migrate
+   ```
+1. Start run the development server
+   ```bash
+   npm run dev
+   ```
+   
+## APIs
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
--  [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--  [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Use [Postman Collection](blogtrash.postman_collection.json) to browse through APIs
 
 ## Prisma
 
-1. Install
-
-   ```
-   npm install prisma --save-dev
-   ```
-
-2. Initialize Prisma, that will create `prisma/schema.prisma` file
-
-   ```
-   prisma init
-   ```
-
-3. Create a prisma client at `.prisma/client`, need to run this command everytime you change the schema.prisma
-
-   ```
-   prisma generate
+1. For any change in database models, run
+   ```bash
+   npm run prisma:migrate
    ```
