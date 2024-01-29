@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Blog {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  description String
+  content     String
+}
+
+model BlogTrash {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  content     String
+  deletedAt   DateTime
+}
