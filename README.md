@@ -2,7 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Problem Statement
 
-Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** as ORM. The app should provide ability to restore deleted blogs if user restores it within `2 minutes` from the time it is deleted. After 2 minutes deleted blog is permanently deleted from database  
+Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** as ORM. The app should provide ability to restore deleted blogs if user restores it within `2 minutes` from the time it is deleted. After 2 minutes deleted blog is permanently deleted from database
+
 ## Lessons Learnt
 
 1. Getting familiar with NextJS API Routes
@@ -36,10 +37,10 @@ Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** 
    ```bash
    npm run dev
    ```
-   
+
 ## APIs
 
-- Use [Postman Collection](blogtrash.postman_collection.json) to browse through APIs
+-  Use [Postman Collection](blogtrash.postman_collection.json) to browse through APIs
 
 ## Prisma
 

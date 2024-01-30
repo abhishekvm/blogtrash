@@ -2,26 +2,31 @@
    "name": "blogtrash",
    "version": "0.1.0",
    "private": true,
+   "type": "module",
    "scripts": {
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
       "lint": "next lint",
-      "seed": "node -r dotenv/config ./scripts/seed.js",
+      "scheduler": "npx tsx -r dotenv/config ./scripts/cron.ts",
       "prisma:migrate": "prisma migrate dev",
       "format:fix": "prettier --write --ignore-path .gitignore ."
    },
    "dependencies": {
       "@prisma/client": "^5.8.1",
       "bcrypt": "^5.1.1",
+      "date-arithmetic": "^4.1.0",
       "mysql2": "^3.9.0",
       "next": "14.1.0",
+      "node-cron": "^3.0.3",
       "react": "^18",
       "react-dom": "^18",
       "zod": "^3.22.4"
    },
    "devDependencies": {
+      "@types/date-arithmetic": "^4.1.4",
       "@types/node": "^20.11.8",
+      "@types/node-cron": "^3.0.11",
       "@types/react": "^18",
       "@types/react-dom": "^18",
       "autoprefixer": "^10.4.17",
@@ -34,6 +39,7 @@
       "prisma": "^5.8.1",
       "tailwindcss": "^3.4.1",
       "ts-node": "^10.9.2",
+      "tsx": "^4.7.0",
       "typescript": "^5.3.3"
    }
 }

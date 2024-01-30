@@ -1,165 +1,127 @@
 {
-	"info": {
-		"_postman_id": "64d46167-483f-489e-ac06-51e1fb89724b",
-		"name": "BlogTrash",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19745567"
-	},
-	"item": [
-		{
-			"name": "Create a blog",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"Layouts in React\",\n    \"description\": \"Learn Layouts in ReactJS with simple exmple\",\n    \"content\": \"Layouts are very simple\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/blogs",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"blogs"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List all blogs",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"Learn NextJS\",\n    \"description\": \"Learn NextJS in 10 easy steps\",\n    \"content\": \"Blah Blah Bla\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/blogs/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"blogs",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get a single blog",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/blogs/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"blogs",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete a blog",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/blogs/3",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"blogs",
-						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List all blogs from trash",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/blogs/trash/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"blogs",
-						"trash",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Restore blog from trash",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/blogs/trash/2/restore",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"blogs",
-						"trash",
-						"2",
-						"restore"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"variable": [
-		{
-			"key": "blog_id",
-			"value": "4"
-		}
-	]
+   "info": {
+      "_postman_id": "64d46167-483f-489e-ac06-51e1fb89724b",
+      "name": "BlogTrash",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "_exporter_id": "19745567"
+   },
+   "item": [
+      {
+         "name": "Create a blog",
+         "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+               "mode": "raw",
+               "raw": "{\n    \"name\": \"Layouts in React\",\n    \"description\": \"Learn Layouts in ReactJS with simple exmple\",\n    \"content\": \"Layouts are very simple\"\n}",
+               "options": {
+                  "raw": {
+                     "language": "json"
+                  }
+               }
+            },
+            "url": {
+               "raw": "http://localhost:3000/api/blogs",
+               "protocol": "http",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["api", "blogs"]
+            }
+         },
+         "response": []
+      },
+      {
+         "name": "List all blogs",
+         "protocolProfileBehavior": {
+            "disableBodyPruning": true
+         },
+         "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+               "mode": "raw",
+               "raw": "{\n    \"name\": \"Learn NextJS\",\n    \"description\": \"Learn NextJS in 10 easy steps\",\n    \"content\": \"Blah Blah Bla\"\n}",
+               "options": {
+                  "raw": {
+                     "language": "json"
+                  }
+               }
+            },
+            "url": {
+               "raw": "http://localhost:3000/api/blogs/",
+               "protocol": "http",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["api", "blogs", ""]
+            }
+         },
+         "response": []
+      },
+      {
+         "name": "Get a single blog",
+         "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+               "raw": "http://localhost:3000/api/blogs/1",
+               "protocol": "http",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["api", "blogs", "1"]
+            }
+         },
+         "response": []
+      },
+      {
+         "name": "Delete a blog",
+         "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+               "raw": "http://localhost:3000/api/blogs/3",
+               "protocol": "http",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["api", "blogs", "3"]
+            }
+         },
+         "response": []
+      },
+      {
+         "name": "List all blogs from trash",
+         "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+               "raw": "http://localhost:3000/api/blogs/trash/",
+               "protocol": "http",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["api", "blogs", "trash", ""]
+            }
+         },
+         "response": []
+      },
+      {
+         "name": "Restore blog from trash",
+         "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+               "raw": "http://localhost:3000/api/blogs/trash/2/restore",
+               "protocol": "http",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["api", "blogs", "trash", "2", "restore"]
+            }
+         },
+         "response": []
+      }
+   ],
+   "variable": [
+      {
+         "key": "blog_id",
+         "value": "4"
+      }
+   ]
 }
