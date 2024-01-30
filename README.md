@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Problem Statement
 
-Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** as ORM. The app should provide ability to restore deleted blogs if user restores it within `2 minutes` from the time it is deleted. After 2 minutes deleted blog is permanently deleted from database
+Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** as ORM. The app should provide ability to restore deleted blogs if user restores it within `2 minutes` from the time it is deleted. After 2 minutes deleted blog is permanently deleted from database.
+
+The app contains standalone scheduler service that permanently deletes the blogs in trash.
 
 ## Lessons Learnt
 
@@ -12,8 +14,6 @@ Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** 
    1. Restored blogs from trash gets new `id`.
       1. The deleted blogs are maintained in the separate table `blogtrash`. While restoring blog gets new `id` as `id` is autoincrement key and Prisma adds a check to avoid overriding autoincrement behaviour
       1. This problem may not arise if `id` field is not autoincrement or we chose to bypass Prisma and write raw sql.
-   2. Permanent deletion may not work if the NextJS Server is stopped or restarted within `2 minutes` from the blog is deleted.
-      1. The permanent deletion is scheduled using `setTimeout` with acts a in-memory cron job
 
 ## Getting Started
 
@@ -38,6 +38,10 @@ Create a simple CRUD APIs for `blog` using **NextJS**, **MySQL** and **Prisma** 
    npm run dev
    ```
 
+1. Start Scheduler
+   ```bash
+   npm run scheduler
+   ```
 ## APIs
 
 -  Use [Postman Collection](blogtrash.postman_collection.json) to browse through APIs

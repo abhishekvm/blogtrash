@@ -27,11 +27,8 @@ export async function DELETE(
    });
 
    if (blog) {
+      // Blogs will get deleted permanently after 2 minutes by external scheduler service
       await softDelete(blog);
-
-      // Hard Delete in 2 mins
-      setTimeout((callback) => hardDelete(blog.id), 2 * 60 * 1000);
-
       return Response.json(blog);
    }
    return new Response(`Blog not found`, {
